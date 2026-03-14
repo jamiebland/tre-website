@@ -111,6 +111,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video */}
+      <section className="px-6 pb-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="border-t border-[#EDE9DF] pt-16 mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#6B8C6E] mb-4">
+              See TRE® in Action
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-light text-[#2A4233]">
+              What We Do
+            </h2>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-[#EDE9DF] bg-white shadow-sm aspect-video">
+            <iframe
+              src="https://www.youtube.com/embed/xmn1BucNrzA"
+              title="TRE® – What We Do"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <p className="text-xs text-[#B0A99E] mt-3 text-center">
+            Video courtesy of Mental Joe @{" "}
+            <a
+              href="https://www.mentaljoe.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#6B8C6E] underline underline-offset-2 transition-colors"
+            >
+              mentaljoe.com
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="px-6 pb-24">
         <div className="max-w-6xl mx-auto">

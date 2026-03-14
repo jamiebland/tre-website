@@ -69,7 +69,7 @@ export default function AboutPage() {
               <div className="absolute -inset-4 rounded-full border border-[#A8C4AB]/40" />
               <div className="absolute -inset-8 rounded-full border border-[#A8C4AB]/20" />
               <Image
-                src="/sam.png"
+                src="/sam-profile.JPG"
                 alt="Sam – TRE Bryanston"
                 width={340}
                 height={340}
@@ -84,20 +84,32 @@ export default function AboutPage() {
       {/* About TRE / Dr Bercelli */}
       <section className="px-6 pb-20">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl border border-[#EDE9DF] p-10 md:p-14">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#6B8C6E] mb-4">
-              The Science Behind TRE®
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-light text-[#2A4233] mb-5 leading-tight">
-              Developed by Dr. David Bercelli
-            </h2>
-            <p className="text-[#7A756D] leading-relaxed max-w-2xl">
-              Dr. David Bercelli developed TRE® to help trauma victims and those
-              with PTSD release built-up negative emotions physically. The
-              practice now serves broader stress-release purposes — offering
-              anyone a pathway back to calm and resilience through the body
-              &apos;s own natural mechanisms.
-            </p>
+          <div className="bg-white rounded-2xl border border-[#EDE9DF] p-10 md:p-14 flex flex-col md:flex-row gap-10 items-center">
+            <div className="shrink-0">
+              <Image
+                src="/david-berceli.jpg"
+                alt="Dr. David Bercelli"
+                width={180}
+                height={180}
+                className="rounded-2xl object-cover shadow-md"
+              />
+              <p className="text-xs text-[#B0A99E] text-center mt-2">Dr. David Bercelli</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#6B8C6E] mb-4">
+                The Science Behind TRE®
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-light text-[#2A4233] mb-5 leading-tight">
+                Developed by Dr. David Bercelli
+              </h2>
+              <p className="text-[#7A756D] leading-relaxed max-w-2xl">
+                Dr. David Bercelli developed TRE® to help trauma victims and those
+                with PTSD release built-up negative emotions physically. The
+                practice now serves broader stress-release purposes — offering
+                anyone a pathway back to calm and resilience through the body&apos;s
+                own natural mechanisms.
+              </p>
+            </div>
           </div>
         </div>
       </section>

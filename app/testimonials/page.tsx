@@ -74,10 +74,10 @@ export default function TestimonialsPage() {
           </div>
           <div className="rounded-2xl overflow-hidden border border-[#EDE9DF] bg-white shadow-sm aspect-video">
             <iframe
-              src="https://www.mentaljoe.com"
+              src="https://www.youtube.com/embed/xmn1BucNrzA"
               title="TRE® – What We Do"
               className="w-full h-full"
-              allow="autoplay; encrypted-media"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>
