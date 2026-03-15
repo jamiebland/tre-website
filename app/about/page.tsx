@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Users, Globe, GitBranch } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Sam",
+  description:
+    "Meet Sam — a Body Stress Release Practitioner with 28 years of experience who discovered TRE® and now offers sessions in Bryanston, Johannesburg.",
+  alternates: { canonical: "https://trebryanston.com/about" },
+  openGraph: {
+    title: "About Sam | TRE Bryanston",
+    description:
+      "Meet Sam — a Body Stress Release Practitioner with 28 years of experience who discovered TRE® and now offers sessions in Bryanston, Johannesburg.",
+    url: "https://trebryanston.com/about",
+  },
+};
 
 const traumaTypes = [
   {

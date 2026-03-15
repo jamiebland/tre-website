@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import ContactForm from "@/components/contact-form";
 import { MapPin, Mail } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "FAQ & Contact",
+  description:
+    "Frequently asked questions about TRE® and how to book a session with Sam in Bryanston. One-on-one, dual, and group sessions available.",
+  alternates: { canonical: "https://trebryanston.com/faq-contact" },
+  openGraph: {
+    title: "FAQ & Contact | TRE Bryanston",
+    description:
+      "Frequently asked questions about TRE® and how to book a session with Sam in Bryanston. One-on-one, dual, and group sessions available.",
+    url: "https://trebryanston.com/faq-contact",
+  },
+};
 
 const faqs = [
   {

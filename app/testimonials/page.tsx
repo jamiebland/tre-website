@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Testimonials",
+  description:
+    "Read real stories from clients who have experienced TRE® sessions with Sam in Bryanston, Johannesburg — releasing trauma, anxiety, and stress.",
+  alternates: { canonical: "https://trebryanston.com/testimonials" },
+  openGraph: {
+    title: "Testimonials | TRE Bryanston",
+    description:
+      "Read real stories from clients who have experienced TRE® sessions with Sam in Bryanston, Johannesburg.",
+    url: "https://trebryanston.com/testimonials",
+  },
+};
 
 const testimonials = [
   {

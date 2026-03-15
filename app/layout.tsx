@@ -19,17 +19,41 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TRE Bryanston | Trauma Release Exercises",
+  metadataBase: new URL("https://trebryanston.com"),
+  title: {
+    default: "TRE Bryanston | Trauma Release Exercises",
+    template: "%s | TRE Bryanston",
+  },
   description:
     "The key to releasing stress and taking control of trauma. TRE® sessions in Bryanston, Johannesburg with Sam.",
-  keywords: ["TRE", "Trauma Release Exercises", "Bryanston", "Johannesburg", "stress relief", "PTSD", "body stress release"],
+  keywords: [
+    "TRE",
+    "Trauma Release Exercises",
+    "Bryanston",
+    "Johannesburg",
+    "stress relief",
+    "PTSD",
+    "body stress release",
+    "tremoring",
+    "nervous system reset",
+    "anxiety relief Johannesburg",
+  ],
+  authors: [{ name: "Sam", url: "https://trebryanston.com/about" }],
   openGraph: {
     title: "TRE Bryanston | Trauma Release Exercises",
-    description: "The key to releasing stress and taking control of trauma.",
+    description: "The key to releasing stress and taking control of trauma. TRE® sessions in Bryanston, Johannesburg with Sam.",
     url: "https://trebryanston.com",
     siteName: "TRE Bryanston",
     locale: "en_ZA",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TRE Bryanston | Trauma Release Exercises",
+    description: "The key to releasing stress and taking control of trauma. TRE® sessions in Bryanston, Johannesburg.",
+  },
+  alternates: {
+    canonical: "https://trebryanston.com",
   },
 };
 
