@@ -83,7 +83,7 @@ export default function AboutPage() {
               <div className="absolute -inset-4 rounded-full border border-[#A8C4AB]/40" />
               <div className="absolute -inset-8 rounded-full border border-[#A8C4AB]/20" />
               <Image
-                src="/sam-profile.JPG"
+                src="/sam-profile-2.jpg"
                 alt="Sam – TRE Bryanston"
                 width={340}
                 height={340}
