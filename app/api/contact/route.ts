@@ -1,6 +1,17 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
+// Escape untrusted form input before embedding it in the email HTML.
+const esc = (s: string) =>
+  String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(req: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
@@ -10,11 +21,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
+    if (typeof email !== "string" || !EMAIL_RE.test(email)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
+
     await resend.emails.send({
-      from: "TRE Bryanston <onboarding@resend.dev>",
+      from: "TRE Bryanston <contact@trebryanston.com>",
       to: ["bsrjhb@mweb.co.za"],
       replyTo: email,
-      subject: `New enquiry from ${name}`,
+      subject: `New enquiry from ${esc(name)}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f8f6f1; border-radius: 8px;">
           <h2 style="color: #2A4233; margin-bottom: 4px; font-size: 20px;">New Contact Form Submission</h2>
@@ -23,23 +38,23 @@ export async function POST(req: Request) {
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #7A756D; font-size: 13px; width: 120px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Name</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #1C1C1A; font-size: 14px;">${name}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #1C1C1A; font-size: 14px;">${esc(name)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #7A756D; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Email</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #1C1C1A; font-size: 14px;"><a href="mailto:${email}" style="color: #4A6B4D;">${email}</a></td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #1C1C1A; font-size: 14px;"><a href="mailto:${esc(email)}" style="color: #4A6B4D;">${esc(email)}</a></td>
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #7A756D; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Phone</td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #1C1C1A; font-size: 14px;">${phone}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #EDE9DF; color: #1C1C1A; font-size: 14px;">${esc(phone)}</td>
             </tr>
             <tr>
               <td style="padding: 10px 0; color: #7A756D; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; vertical-align: top;">Message</td>
-              <td style="padding: 10px 0; color: #1C1C1A; font-size: 14px; line-height: 1.6;">${message.replace(/\n/g, "<br>")}</td>
+              <td style="padding: 10px 0; color: #1C1C1A; font-size: 14px; line-height: 1.6;">${esc(message).replace(/\n/g, "<br>")}</td>
             </tr>
           </table>
 
-          <p style="margin-top: 24px; font-size: 12px; color: #B0A99E;">Reply directly to this email to respond to ${name}.</p>
+          <p style="margin-top: 24px; font-size: 12px; color: #B0A99E;">Reply directly to this email to respond to ${esc(name)}.</p>
         </div>
       `,
     });
